@@ -1,0 +1,12 @@
+# Copy to `.dev.vars` for local `wrangler dev` ONLY. .dev.vars is gitignored.
+# In production these are set as encrypted Worker secrets:
+#   npx wrangler secret put ATTIO_API_KEY
+#   npx wrangler secret put NOTION_TOKEN
+#   npx wrangler secret put ATTIO_WEBHOOK_SECRET
+#   npx wrangler secret put NOTION_WEBHOOK_SECRET
+ATTIO_API_KEY=
+NOTION_TOKEN=
+ATTIO_WEBHOOK_SECRET=
+NOTION_WEBHOOK_SECRET=
+# Shared secret to protect the manual /sync trigger endpoint:
+MANUAL_SYNC_TOKEN=

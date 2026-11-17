@@ -1,0 +1,18 @@
+{
+  "name": "attio-notion-sync",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Two-way sync between Attio (Active Deals) and Notion (Sales Workspace).",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250101.0",
+    "typescript": "^5.6.3",
+    "wrangler": "^4.20.0"
+  }
+}

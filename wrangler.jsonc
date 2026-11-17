@@ -1,0 +1,24 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "attio-notion-sync",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-06-01",
+  "observability": { "enabled": true },
+
+  // Safety-net reconcile sweep (catches any dropped webhooks). Every 15 min.
+  "triggers": { "crons": ["*/15 * * * *"] },
+
+  // KV stores the deal<->page id map + content hashes (loop/conflict detection).
+  // Create with: npx wrangler kv namespace create SYNC_STATE  -> paste the id below.
+  "kv_namespaces": [
+    { "binding": "SYNC_STATE", "id": "00000000000000000000000000000020" }
+  ],
+
+  // Non-secret config. Secrets (tokens) are set with `wrangler secret put`, never here.
+  "vars": {
+    "ATTIO_LIST_SLUG": "active_deals",
+    "NOTION_DATABASE_ID": "00000000000000000000000000000021",
+    "ATTIO_DEALS_OBJECT": "deals",
+    "ATTIO_COMPANIES_OBJECT": "companies"
+  }
+}
